@@ -1,4 +1,4 @@
-package bg.softuni.moneyapp;
+package bg.softuni.moneyApp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package bg.softuni.moneyapp;
+package bg.softuni.moneyApp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
