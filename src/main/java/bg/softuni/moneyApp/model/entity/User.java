@@ -5,6 +5,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,9 +22,11 @@ import lombok.Setter;
 public class User extends BaseEntity{
 
 
+    @NotEmpty
     @Column(name = "role", nullable = false)
     public Role roles; //TODO: User Role could be a List to store more than one role
 
+    @NotEmpty
     @Column(name = "password", nullable = false)
     private String password;
 
@@ -34,6 +38,12 @@ public class User extends BaseEntity{
     @Column(name = "username", nullable = false)
     private String userName;
 
-    //TODO: Add firstName and lastName
+    @NotEmpty
+    @Column(name = "first_name", nullable = false)
+    private String firstName;
+
+    @NotEmpty
+    @Column(name = "last_name", nullable = false)
+    private String lastName;
 
 }
