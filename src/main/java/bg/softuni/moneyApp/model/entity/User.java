@@ -1,12 +1,9 @@
 package bg.softuni.moneyApp.model.entity;
 
-import bg.softuni.moneyApp.model.enums.Role;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import bg.softuni.moneyApp.model.enums.UserRole;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,10 +18,10 @@ import lombok.Setter;
 @Table(name = "users")
 public class User extends BaseEntity{
 
-
+    @Enumerated(value = EnumType.STRING)
     @NotEmpty
     @Column(name = "role", nullable = false)
-    public Role roles; //TODO: User Role could be a List to store more than one role
+    public UserRole roles; //TODO: User Role could be a List to store more than one role
 
     @NotEmpty
     @Column(name = "password", nullable = false)

@@ -1,6 +1,6 @@
 package bg.softuni.moneyApp.model.enums;
 
-public enum Role {
+public enum UserRole {
     ADMIN,
     USER
 }
