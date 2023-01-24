@@ -10,18 +10,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "users")
-public class User extends BaseEntity{
-
-    @Enumerated(value = EnumType.STRING)
-    @NotEmpty
-    @Column(name = "role", nullable = false)
-    public UserRole roles; //TODO: User Role could be a List to store more than one role
+public class UserEntity extends BaseEntity{
 
     @NotEmpty
     @Column(name = "password", nullable = false)
@@ -43,4 +40,6 @@ public class User extends BaseEntity{
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
+    @OneToMany
+    private List<UserRoleEntity> userRole;
 }

@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "expenses")
-public class Expense extends BaseEntity{
+public class ExpenseEntity extends BaseEntity{
 
     @Enumerated(value = EnumType.STRING)
     @Column(name = "expense_category", nullable = false)
