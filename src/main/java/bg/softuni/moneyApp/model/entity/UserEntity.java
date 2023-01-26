@@ -42,4 +42,19 @@ public class UserEntity extends BaseEntity{
 
     @OneToMany
     private List<UserRoleEntity> userRole;
+
+    @ManyToMany
+    private List<StockEntity> stocks;
+
+    @OneToMany
+    private List<AccountEntity> accounts;
+
+    @OneToMany
+    private List<CryptoEntity> crypto;
+
+    @OneToMany
+    private List<CommodityEntity> commodities;
+
+    @OneToOne
+    private DebtEntity debt;
 }
