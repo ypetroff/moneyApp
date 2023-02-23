@@ -20,23 +20,18 @@ import java.util.List;
 @Table(name = "users")
 public class UserEntity extends BaseEntity{
 
-    @NotEmpty
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Email(regexp = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\\\.[A-Za-z0-9-]+)*(\\\\.[A-Za-z]{2,})$")
     @Column(name = "email", nullable = false)
     private String email;
 
-    @Size(min = 4, max = 15)
     @Column(name = "username", nullable = false)
-    private String userName;
+    private String username;
 
-    @NotEmpty
     @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @NotEmpty
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
