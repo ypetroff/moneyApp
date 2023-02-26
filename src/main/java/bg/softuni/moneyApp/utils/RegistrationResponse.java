@@ -1,15 +1,12 @@
 package bg.softuni.moneyApp.utils;
 
 import bg.softuni.moneyApp.model.dto.UserRegisterDTO;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
 @Getter
 @Setter
 public class RegistrationResponse {

@@ -13,15 +13,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/register")
+@RequestMapping("/users/register")
 public class RegistrationController {
 
     private final UserService userService;
-    private final RegistrationResponse registrationResponse;
 
-    public RegistrationController(UserService userService, RegistrationResponse registrationResponse) {
+    public RegistrationController(UserService userService) {
         this.userService = userService;
-        this.registrationResponse = registrationResponse;
+    }
+
+    @GetMapping("/")
+    public String test() {
+        return "Test";
     }
 
     @PostMapping("/")
