@@ -1,10 +1,17 @@
 package bg.softuni.moneyApp.utils;
 
 import bg.softuni.moneyApp.model.dto.UserRegisterDTO;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
+@Getter
+@Setter
 public class RegistrationResponse {
 
     private String message;
@@ -25,22 +32,6 @@ public class RegistrationResponse {
         this.message = message;
         this.errors = errors;
         this.userRegisterDTO = userRegisterDTO;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public List<String> getErrors() {
-        return errors;
-    }
-
-    public void setErrors(List<String> errors) {
-        this.errors = errors;
     }
 }
 

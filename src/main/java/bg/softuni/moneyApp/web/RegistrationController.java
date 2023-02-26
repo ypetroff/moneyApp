@@ -17,9 +17,11 @@ import java.util.List;
 public class RegistrationController {
 
     private final UserService userService;
+    private final RegistrationResponse registrationResponse;
 
-    public RegistrationController(UserService userService) {
+    public RegistrationController(UserService userService, RegistrationResponse registrationResponse) {
         this.userService = userService;
+        this.registrationResponse = registrationResponse;
     }
 
     @PostMapping("/")
@@ -41,6 +43,10 @@ public class RegistrationController {
                                                             errorMessages,
                                                             userRegisterDTO));
         }
+
+        this.userService.createUser(userRegisterDTO);
+
+        return ResponseEntity.ok(new RegistrationResponse("Registration successful"));
 
 
     }
