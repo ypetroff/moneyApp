@@ -21,7 +21,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http /*, OAuthSuccessHandler oAuthSuccessHandler*/) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
                 .authorizeHttpRequests()
@@ -37,7 +37,6 @@ public class SecurityConfig {
                 .failureForwardUrl("/users/login-error");
 
         return http.build();
-
     }
 
     @Bean
