@@ -29,10 +29,10 @@ public class ExpenseEntity extends BaseEntity{
     private BigDecimal totalPrice;
 
     //NOTE: another option - set a default param for expenseDTO OR set default in the controller
-    @Column(name = "date_of_purchase", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(name = "date_of_purchase")
     private LocalDateTime dateOfPurchase;
 
     @Enumerated(value = EnumType.STRING)
-    @Column(name = "currency", columnDefinition = "BGN") //TODO: check possible submit of null value
+    @Column(name = "currency") //TODO: check possible submit of null value
     private Currency currency; //TODO: currency exchange api
 }
