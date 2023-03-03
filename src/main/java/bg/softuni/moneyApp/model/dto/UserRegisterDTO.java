@@ -18,7 +18,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class UserRegisterDTO {
 
-    @UniqueEmail
+
     @NotEmpty
     @Size(min = 3, message = "Password should be at least 3 characters long")
     private String password;
@@ -26,9 +26,11 @@ public class UserRegisterDTO {
     @NotEmpty
     private String confirmPassword;
 
+    @UniqueEmail
     @NotEmpty
     @Size(min = 5, message = "Email should be at least 5 characters long")
-    @Email(regexp = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\\\.[A-Za-z0-9-]+)*(\\\\.[A-Za-z]{2,})$", message = "Enter valid email address")
+    @Email(regexp = "^[a-zA-Z0-9]([a-zA-Z0-9_\\-\\.]{0,62}[a-zA-Z0-9])?@[a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?(\\.[a-zA-Z0-9]{2,})+$",
+            message = "Enter valid email address")
     private String email;
 
     @UniqueUsername

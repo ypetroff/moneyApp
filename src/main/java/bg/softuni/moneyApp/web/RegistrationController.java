@@ -22,12 +22,7 @@ public class RegistrationController {
         this.userService = userService;
     }
 
-    @GetMapping("/")
-    public String test() {
-        return "Test";
-    }
-
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<RegistrationResponse> registerUser(@Valid @RequestBody
                                                              UserRegisterDTO userRegisterDTO,
                                                              BindingResult bindingResult) {

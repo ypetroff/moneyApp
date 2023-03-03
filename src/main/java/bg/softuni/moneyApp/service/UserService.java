@@ -17,12 +17,12 @@ public class UserService {
         this.modelMapper = modelMapper;
     }
 
-    public boolean isUsernameTaken(String username) {
-        return this.userRepository.findByUsername(username).isPresent();
+    public boolean isUsernameFreeToUse(String username) {
+        return this.userRepository.findByUsername(username).isEmpty();
     }
 
-    public boolean isEmailTaken(String email) {
-        return this.userRepository.findByEmail(email).isPresent();
+    public boolean isEmailFreeToUse(String email) {
+        return this.userRepository.findByEmail(email).isEmpty();
     }
 
     public void createUser(UserRegisterDTO userRegisterDTO) {

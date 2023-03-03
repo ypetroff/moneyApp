@@ -1,17 +1,17 @@
 package bg.softuni.moneyApp.service;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
-import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
-import org.springframework.stereotype.Component;
-
-import java.io.IOException;
+//import jakarta.servlet.ServletException;
+//import jakarta.servlet.http.HttpServletRequest;
+//import jakarta.servlet.http.HttpServletResponse;
+//import org.springframework.security.core.Authentication;
+//import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
+//import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
+//import org.springframework.stereotype.Component;
+//
+//import java.io.IOException;
 
 //@Component
-public class OAuthSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
+//public class OAuthSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
 
 //    private final UserService userService;
 //
@@ -35,4 +35,4 @@ public class OAuthSuccessHandler extends SavedRequestAwareAuthenticationSuccessH
 //            userService.login(userEmail);
 //        }
 //    }
-}
+//}
