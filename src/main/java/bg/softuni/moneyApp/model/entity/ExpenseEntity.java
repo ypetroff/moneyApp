@@ -3,10 +3,18 @@ package bg.softuni.moneyApp.model.entity;
 import bg.softuni.moneyApp.model.enums.Currency;
 import bg.softuni.moneyApp.model.enums.ExpenseCategory;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@EqualsAndHashCode(callSuper = true)
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "expenses")
 public class ExpenseEntity extends BaseEntity{

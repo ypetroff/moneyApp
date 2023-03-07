@@ -4,8 +4,8 @@ import bg.softuni.moneyApp.model.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Getter
-@Setter
+@EqualsAndHashCode(callSuper = true)
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
