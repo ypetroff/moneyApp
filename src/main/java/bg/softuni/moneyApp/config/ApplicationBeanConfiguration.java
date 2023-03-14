@@ -1,37 +1,50 @@
 package bg.softuni.moneyApp.config;
 
+import bg.softuni.moneyApp.config.security.AppUser;
+import bg.softuni.moneyApp.repository.UserRepository;
+import bg.softuni.moneyApp.service.ApplicationUserDetailsService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Configuration
+@RequiredArgsConstructor
 public class ApplicationBeanConfiguration {
 
+    private final ApplicationUserDetailsService userDetailsService;
+    private final PasswordEncoder passwordEncoder;
+    private final UserRepository userRepository;
+    private final ModelMapper modelMapper;
+
     @Bean
-    public ModelMapper modelMapper() {
-
-        ModelMapper modelMapper = new ModelMapper();
-
-        modelMapper.addConverter(mappingContext ->
-                        LocalDateTime.parse(mappingContext.getSource(),
-                                DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")),
-                String.class,
-                LocalDateTime.class);
-
-        return modelMapper;
+    public UserDetailsService userDetailsService() {
+        return username -> this.modelMapper.map(
+                userRepository.findByEmail(username).orElseThrow(() -> new UsernameNotFoundException("User not found")),
+                AppUser.class);
+    }
+    @Bean //1:35
+    public AuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+        authProvider.setUserDetailsService(userDetailsService());
+        authProvider.setPasswordEncoder(passwordEncoder);
+        return authProvider;
     }
 
     @Bean
-    public Gson gson() {
-        return new GsonBuilder()
-                .setPrettyPrinting()
-//                .serializeNulls() //NOTE: serialize null values if necessary
-                .excludeFieldsWithoutExposeAnnotation()
-                .create();
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+        return config.getAuthenticationManager();
     }
 }

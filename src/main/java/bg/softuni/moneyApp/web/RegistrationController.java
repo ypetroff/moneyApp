@@ -23,7 +23,7 @@ public class RegistrationController {
     }
 
     @PostMapping
-    public ResponseEntity<RegistrationResponse> registerUser(@Valid @RequestBody
+     public ResponseEntity<RegistrationResponse> registerUser(@Valid @RequestBody
                                                              UserRegisterDTO userRegisterDTO,
                                                              BindingResult bindingResult) {
 
