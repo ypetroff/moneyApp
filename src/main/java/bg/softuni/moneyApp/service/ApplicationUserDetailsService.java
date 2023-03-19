@@ -1,8 +1,9 @@
 package bg.softuni.moneyApp.service;
 
-import bg.softuni.moneyApp.model.entity.UserEntity;
 import bg.softuni.moneyApp.model.entity.UserRoleEntity;
+import bg.softuni.moneyApp.model.entity.user.UserEntity;
 import bg.softuni.moneyApp.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -14,13 +15,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ApplicationUserDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;
-
-    public ApplicationUserDetailsService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

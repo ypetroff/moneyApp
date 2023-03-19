@@ -1,10 +1,9 @@
 package bg.softuni.moneyApp.config.security;
 
+import bg.softuni.moneyApp.model.entity.user.AppUser;
 import bg.softuni.moneyApp.repository.UserRepository;
 import bg.softuni.moneyApp.service.ApplicationUserDetailsService;
-import jakarta.servlet.Filter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -22,6 +21,7 @@ public class SecurityConfig {
 
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
+    private final AppUser appUser;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -36,7 +36,7 @@ public class SecurityConfig {
                 .disable() //only during test phase
                 .authorizeHttpRequests()
               //  .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                .requestMatchers("/", "/users/login", "/users/register", "/users/login-error")
+                .requestMatchers("/", "/api/v1/auth/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
@@ -52,6 +52,6 @@ public class SecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService(UserRepository userRepository) {
-        return new ApplicationUserDetailsService(userRepository);
+        return new ApplicationUserDetailsService(userRepository, appUser);
     }
 }

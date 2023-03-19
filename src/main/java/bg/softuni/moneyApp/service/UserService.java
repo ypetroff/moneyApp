@@ -1,7 +1,7 @@
 package bg.softuni.moneyApp.service;
 
 import bg.softuni.moneyApp.model.dto.UserRegisterDTO;
-import bg.softuni.moneyApp.model.entity.UserEntity;
+import bg.softuni.moneyApp.model.entity.user.UserEntity;
 import bg.softuni.moneyApp.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;

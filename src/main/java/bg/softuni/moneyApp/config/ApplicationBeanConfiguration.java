@@ -1,10 +1,8 @@
 package bg.softuni.moneyApp.config;
 
-import bg.softuni.moneyApp.config.security.AppUser;
+import bg.softuni.moneyApp.model.entity.user.AppUser;
 import bg.softuni.moneyApp.repository.UserRepository;
 import bg.softuni.moneyApp.service.ApplicationUserDetailsService;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
@@ -16,9 +14,6 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 @Configuration
 @RequiredArgsConstructor
