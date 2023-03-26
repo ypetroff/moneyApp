@@ -1,4 +1,4 @@
-package bg.softuni.moneyApp.service;
+package bg.softuni.moneyApp.config.security;
 
 import bg.softuni.moneyApp.model.entity.UserEntity;
 import bg.softuni.moneyApp.model.entity.UserRoleEntity;

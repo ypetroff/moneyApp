@@ -31,7 +31,7 @@ public class UserEntity extends BaseEntity{
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @OneToMany
+    @ManyToMany
     private List<UserRoleEntity> userRole;
 
     @ManyToMany
