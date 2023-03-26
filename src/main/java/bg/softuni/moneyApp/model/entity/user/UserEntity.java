@@ -1,5 +1,6 @@
-package bg.softuni.moneyApp.model.entity;
+package bg.softuni.moneyApp.model.entity.user;
 
+import bg.softuni.moneyApp.model.entity.*;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "users")
-public class UserEntity extends BaseEntity{
+public class UserEntity extends BaseEntity {
 
     @Column(name = "password", nullable = false)
     private String password;

@@ -1,4 +1,4 @@
-package bg.softuni.moneyApp.config.security;
+package bg.softuni.moneyApp.model.entity.user;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
