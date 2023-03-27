@@ -34,8 +34,7 @@ public class SecurityConfig {
         http
                 .csrf().disable() //only during test phase
                 .authorizeHttpRequests()
-              //  .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                .requestMatchers("/", "/users/login", "/users/register", "/users/login-error")
+                .requestMatchers("/", "/api/v1/auth/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
