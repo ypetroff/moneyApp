@@ -28,16 +28,16 @@ public class AuthenticationController {
     private final UserRoleRepository userRoleRepository;
     private final PasswordEncoder passwordEncoder;
 
-    @PostMapping("login")
-    public ResponseEntity<AuthResponseDTO> login(@RequestBody LoginDto loginDto){
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        loginDto.getUsername(),
-                        loginDto.getPassword()));
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        String token = jwtGenerator.generateToken(authentication);
-        return new ResponseEntity<>(new AuthResponseDTO(token), HttpStatus.OK);
-    }
+//    @PostMapping("login")
+//    public ResponseEntity<AuthResponseDTO> login(@RequestBody LoginDto loginDto){
+//        Authentication authentication = authenticationManager.authenticate(
+//                new UsernamePasswordAuthenticationToken(
+//                        loginDto.getUsername(),
+//                        loginDto.getPassword()));
+//        SecurityContextHolder.getContext().setAuthentication(authentication);
+//        String token = jwtGenerator.generateToken(authentication);
+//        return new ResponseEntity<>(new AuthResponseDTO(token), HttpStatus.OK);
+//    }
 
     @PostMapping("register")
     public ResponseEntity<String> register(@RequestBody UserRegisterDTO userRegisterDTO) {

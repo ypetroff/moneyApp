@@ -2,13 +2,11 @@ package bg.softuni.moneyApp.service;
 
 import bg.softuni.moneyApp.model.dto.UserRegisterDTO;
 import bg.softuni.moneyApp.model.entity.UserEntity;
-import bg.softuni.moneyApp.model.enums.UserRole;
 import bg.softuni.moneyApp.repository.UserRepository;
 import jakarta.annotation.PostConstruct;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.stream.Stream;
 
 @Service
